@@ -28,3 +28,73 @@ function displayEntries(filtered = null) {
         <div class="entry-controls">
           <button onclick="editEntry(${i})">Edit</button>
           <button onclick="deleteEntry(${i})">Hapus</button>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+
+  highlightToday(); // panggil untuk memberi highlight jika ada yang hari ini
+}
+
+// Menghapus entri
+function deleteEntry(index) {
+  let entries = JSON.parse(localStorage.getItem('jurnalEntries') || '[]');
+  if (confirm('Yakin mau hapus entri ini?')) {
+    entries.splice(index, 1);
+    localStorage.setItem('jurnalEntries', JSON.stringify(entries));
+    displayEntries();
+  }
+}
+
+// Mengedit entri
+function editEntry(index) {
+  let entries = JSON.parse(localStorage.getItem('jurnalEntries') || '[]');
+  const content = prompt('Edit isi jurnal:', entries[index].content);
+  if (content !== null) {
+    entries[index].content = content;
+    localStorage.setItem('jurnalEntries', JSON.stringify(entries));
+    displayEntries();
+  }
+}
+
+// Mencari entri berdasarkan tanggal
+function searchByDate() {
+  const searchDate = document.getElementById('search-date').value;
+  displayEntries(searchDate);
+}
+
+// Highlight entri hari ini
+function highlightToday() {
+  const today = new Date().toISOString().split('T')[0];
+  const entries = document.querySelectorAll('.entry');
+  entries.forEach(entry => {
+    if (entry.querySelector('strong').textContent === today) {
+      entry.classList.add('highlight');
+    }
+  });
+}
+
+// Menandai sebagai sudah dikerjakan
+function toggleDone(index) {
+  let entries = JSON.parse(localStorage.getItem('jurnalEntries') || '[]');
+  entries[index].done = !entries[index].done;
+  localStorage.setItem('jurnalEntries', JSON.stringify(entries));
+  displayEntries();
+}
+
+// Export ke PDF
+function exportToPDF() {
+  const container = document.getElementById('journal-entries');
+  const opt = {
+    margin: 1,
+    filename: 'Jurnal_8F.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().from(container).set(opt).save();
+}
+
+window.onload = () => {
+  displayEntries();
+};
