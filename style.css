@@ -1,70 +1,32 @@
-body {
-  font-family: 'Georgia', serif;
-  background-color: #f9f5f0;
-  color: #333;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #fdf6f0; color: #333; }
 
-header {
-  background-color: #705a46;
-  color: #fff8e7;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-}
+header { background-color: #735751; color: #fff; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-section {
-  background-color: #fffdf7;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 800px;
-}
+h1, h2 { margin: 0.5rem 0; }
 
-h1, h2 {
-  font-family: 'Times New Roman', serif;
-}
+section { padding: 1.5rem; max-width: 800px; margin: auto; background-color: #fff8f0; margin-top: 1rem; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
 
-textarea, input[type="date"] {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+textarea, input[type="date"], input[type="text"] { width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
 
-button {
-  background-color: #a67c52;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
-}
+button { background-color: #8a5c4d; color: #fff; border: none; padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer; margin-right: 0.5rem; margin-top: 0.5rem; transition: background 0.3s; }
 
-button:hover {
-  background-color: #8c6239;
-}
+button:hover { background-color: #a86e5f; }
 
-.entry {
-  background-color: #f5ede2;
-  padding: 16px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
+.entry { background-color: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; }
 
-.entry-controls {
-  margin-top: 10px;
-}
+.entry-controls button { background-color: #5d4c46; font-size: 0.9rem; }
 
-.entry-controls button {
-  margin-right: 10px;
-}
+#tools { margin-top: 1rem; }
+
+#filters { margin-bottom: 1rem; }
+
+.dark-mode { background-color: #2e2b2a; color: #f5f5f5; }
+
+.dark-mode section { background-color: #3d3938; }
+
+.dark-mode input, .dark-mode textarea { background-color: #555; color: #fff; border: 1px solid #777; }
+
+.dark-mode button { background-color: #666; }
+
+.dark-mode .entry { background-color: #4a4543; border-color: #666; }
+
