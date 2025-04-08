@@ -17,6 +17,13 @@
     <input type="date" id="entry-date" />
     <textarea id="entry-content" placeholder="Tulis materi atau tugas di sini..."></textarea>
     <button onclick="addEntry()">Tambah</button>
+
+    <div id="tools">
+      <button onclick="exportToPDF()">Export ke PDF</button>
+      <button onclick="backupData()">Backup Data</button>
+      <button onclick="restoreData()">Restore Data</button>
+      <button onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
   </section>
 
   <section id="tips-box">
@@ -27,6 +34,14 @@
 
   <section id="entries">
     <h2>Daftar Jurnal</h2>
+
+    <div id="filters">
+      <input type="text" id="keyword-search" placeholder="Cari kata kunci..." oninput="searchByKeyword()" />
+      <label>
+        <input type="checkbox" id="filter-favorites" onchange="displayEntries()"> Tampilkan Favorit
+      </label>
+    </div>
+
     <div id="journal-entries"></div>
   </section>
 
