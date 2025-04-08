@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jurnal 8F</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Jurnal Kelas 8F</h1>
+    <p>Semester 1 - Tahun 2024</p>
+  </header>
+
+  <section id="new-entry">
+    <h2>Tambah Jurnal</h2>
+    <input type="date" id="entry-date" />
+    <textarea id="entry-content" placeholder="Tulis materi atau tugas di sini..."></textarea>
+    <button onclick="addEntry()">Tambah</button>
+  </section>
+
+  <section id="tips-box">
+    <input type="date" id="search-date" />
+    <button onclick="searchByDate()">Cari Tanggal</button>
+  </section>
+
+  <section id="entries">
+    <h2>Daftar Jurnal</h2>
+    <div id="journal-entries"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
