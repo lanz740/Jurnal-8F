@@ -15,7 +15,28 @@ button:hover { background-color: #a86e5f; }
 .entry { background-color: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; }
 
 .entry-controls button { background-color: #5d4c46; font-size: 0.9rem; }
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
 
+body.dark-mode header,
+body.dark-mode section {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode textarea,
+body.dark-mode input {
+  background-color: #222;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
 #tools { margin-top: 1rem; }
 
 #filters { margin-bottom: 1rem; }
