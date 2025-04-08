@@ -1,35 +1,22 @@
-const form = document.getElementById('journal-form');
-const list = document.getElementById('journal-list');
-
-let journals = JSON.parse(localStorage.getItem('journals')) || [];
-
-function saveJournals() {
-  localStorage.setItem('journals', JSON.stringify(journals));
-}
-
-function renderJournals() {
-  list.innerHTML = '';
-  journals.forEach((j, index) => {
-    const div = document.createElement('div');
-    div.className = 'journal';
-    div.innerHTML = `
-      <h3>${j.hari}, ${j.tanggal}</h3>
-      <div>${j.materi.replace(/\n/g, '<br>')}</div>
-    `;
-    list.prepend(div);
+function highlightToday() {
+  const today = new Date().toISOString().split('T')[0];
+  const entries = document.querySelectorAll(".entry");
+  entries.forEach(entry => {
+    entry.classList.remove("today");
+    if (entry.dataset.date === today) {
+      entry.classList.add("today");
+    }
   });
 }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const tanggal = document.getElementById('tanggal').value;
-  const hari = document.getElementById('hari').value;
-  const materi = document.getElementById('materi').value;
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
 
-  journals.push({ tanggal, hari, materi });
-  saveJournals();
-  renderJournals();
-  form.reset();
+document.getElementById("searchDate").addEventListener("change", function () {
+  const selected = this.value;
+  const entries = document.querySelectorAll(".entry");
+  entries.forEach(entry => {
+    entry.style.display = entry.dataset.date === selected || selected === "" ? "block" : "none";
+  });
 });
-
-renderJournals();
