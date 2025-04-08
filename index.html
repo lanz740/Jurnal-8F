@@ -1,106 +1,37 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jurnal 8F - Semester 2</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
-  <style>
-    body {
-      font-family: 'Roboto Slab', serif;
-      background-color: #fdf6e3;
-      color: #333;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #5d4037;
-    }
-    .entry {
-      background: #fff8e1;
-      border-left: 5px solid #795548;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 800px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .tasks {
-      background: #fff3e0;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
-    }
-    button {
-      background-color: #8d6e63;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #6d4c41;
-    }
-    .form-container {
-      background-color: #fcefdc;
-      padding: 15px;
-      margin-top: 30px;
-      border-radius: 8px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-  </style>
+  <title>Jurnal 8F</title>
+  <!-- Style (CSS) ada di bagian <style> dalam head -->
 </head>
 <body>
-  <h1>Jurnal Kelas 8F - Semester 2</h1>
-  <div id="entries"></div>  <div class="form-container">
-    <h3>Tambah Jurnal Baru</h3>
-    <label for="tanggal">Tanggal:</label>
-    <input type="date" id="tanggal" /><label for="hari">Hari:</label>
-<select id="hari">
-  <option value="Senin">Senin</option>
-  <option value="Selasa">Selasa</option>
-  <option value="Rabu">Rabu</option>
-  <option value="Kamis">Kamis</option>
-  <option value="Jumat">Jumat</option>
-</select>
+  <header>
+    <h1>Jurnal 8F - Semester 2</h1>
+  </header>
+  <main>
+    <div id="journal-list"></div>
+    <form id="journal-form">
+      <h2>Tambah Jurnal</h2>
+      <label for="tanggal">Tanggal:</label>
+      <input type="date" id="tanggal" required />
 
-<label for="materi">Materi dan Tugas:</label>
-<textarea id="materi" rows="6" placeholder="Tulis materi dan tugas di sini..."></textarea>
+      <label for="hari">Hari:</label>
+      <select id="hari" required>
+        <option value="">Pilih Hari</option>
+        <option value="Senin">Senin</option>
+        <option value="Selasa">Selasa</option>
+        <option value="Rabu">Rabu</option>
+        <option value="Kamis">Kamis</option>
+        <option value="Jumat">Jum'at</option>
+      </select>
 
-<button onclick="tambahJurnal()">+ Tambah Jurnal</button>
+      <label for="materi">Isi Jurnal:</label>
+      <textarea id="materi" rows="6" placeholder="Masukkan materi & tugas..." required></textarea>
 
-  </div>  <script>
-    function tambahJurnal() {
-      const tanggal = document.getElementById('tanggal').value;
-      const hari = document.getElementById('hari').value;
-      const materi = document.getElementById('materi').value;
-
-      const entryHTML = `
-        <div class="entry" data-date="${tanggal}" data-subject="${hari}">
-          <h3>${hari}, ${tanggal}</h3>
-          <p>${materi.replace(/\n/g, '<br>')}</p>
-        </div>
-      `;
-
-      const entries = document.getElementById('entries');
-      entries.innerHTML = entryHTML + entries.innerHTML;
-
-      // Clear input fields
-      document.getElementById('tanggal').value = '';
-      document.getElementById('hari').value = '';
-      document.getElementById('materi').value = '';
-    }
-  </script></body>
+      <button type="submit">Simpan Jurnal</button>
+    </form>
+  </main>
+</body>
 </html>
