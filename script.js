@@ -17,4 +17,6 @@ const entry = { date, content }; let entries = JSON.parse(localStorage.getItem('
 // Export ke PDF function exportToPDF() { const container = document.getElementById('journal-entries'); const opt = { margin: 1, filename: 'Jurnal_8F.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' } }; html2pdf().from(container).set(opt).save(); }
 
 window.onload = () => { displayEntries(); highlightToday(); };
-
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
